@@ -180,14 +180,14 @@ class Experiment(object):
             cp = cProfile.Profile()
             cp.enable()
     
-        t = time.clock()
+        t = time.time()
         while self.i < iterations:
             if print_logs:
                 # Print number of iterations up to now:
                 if self.i - self.last_print > 1000:
                     self.last_print = 1000 * (self.i // 1000)
                     print("\nIteration:", self.i)
-                    print("Time:", int(10.*(time.clock() - t)) / 10.)
+                    print("Time:", int(10.*(time.time() - t)) / 10.)
                     print("Average steps", int(10.*self.avg_steps) / 10.)
                     print("n_stick1_moved", self.environment.n_stick1_moved - self.n_stick1_moved)
                     print("n_stick2_moved", self.environment.n_stick2_moved - self.n_stick2_moved)
@@ -203,7 +203,7 @@ class Experiment(object):
                             if mid in self.learning_modules:
                                 print("Interest of module", mid, ":", int(1000.*self.learning_modules[mid].interest_model.current_interest) / 1000.)
         
-                    t = time.clock()
+                    t = time.time()
     
             # Choose the babbling module (probabilities proportional to interests, with epsilon of random choice):
             if self.condition == "RMB":

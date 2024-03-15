@@ -1,0 +1,3 @@
+.venv
+2DSimulation/__pycache__/
+*.pyc

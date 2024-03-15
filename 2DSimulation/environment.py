@@ -381,6 +381,8 @@ class ArmToolsToysEnvironment(Environment):
         #plt.pause(0.01)
 
     def start_viewer(self):
+        print("starting viewer")
+
         self.viewer = plt.figure(figsize=(5, 5), frameon=False)
         fig = plt.gcf()
         ax = plt.gca()
